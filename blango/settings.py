@@ -20,6 +20,10 @@ import dj_database_url
 
 
 class Dev(Configuration):
+
+  #Custom User Creation
+  AUTH_USER_MODEL = "blango_auth.User"
+
   # Build paths inside the project like this: BASE_DIR / 'subdir'.
   BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -42,6 +46,8 @@ class Dev(Configuration):
   CSRF_COOKIE_SAMESITE = 'None'
   SESSION_COOKIE_SAMESITE = 'None'
 
+  
+
 
   # Application definition
 
@@ -52,10 +58,12 @@ class Dev(Configuration):
       'django.contrib.sessions',
       'django.contrib.messages',
       'django.contrib.staticfiles',
+      "blango_auth",
       'blog',
       "crispy_forms",
       "crispy_bootstrap5",
       "debug_toolbar",
+      
   ]
 
   MIDDLEWARE = [
@@ -198,6 +206,10 @@ class Dev(Configuration):
 
   CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
   CRISPY_TEMPLATE_PACK = "bootstrap5"
+
+  
+
+
 
 class Prod(Dev):
     DEBUG = False
