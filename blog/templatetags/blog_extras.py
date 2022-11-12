@@ -78,8 +78,8 @@ def recent_posts(post):
     return {"title": "Recent Posts", "posts" : posts }
 
 @register.simple_tag
-def col():
-    return format_html('<div class="col">')
+def col(extra_classes= ""):
+    return format_html('<div class="col {}">', extra_classes)
 
 
 @register.simple_tag
